@@ -37,10 +37,10 @@ public class Swagger2Configuration {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("我的系统我的系统我的系统") //设置文档的标题
-                .description("啥求都有的服务 API 接口文档") // 设置文档的描述
+                .title("个人测试系统") //设置文档的标题
+                .description("啥求都有的 API 接口文档") // 设置文档的描述
                 .version(VERSION) // 设置文档的版本信息-> 1.0.0 Version information
-                .termsOfServiceUrl("http://www.baidu.com") // 设置文档的License信息->1.3 License information
+                .termsOfServiceUrl("http://localhost:8080/doc.html") // 设置文档的License信息->1.3 License information
                 .build();
     }
 }
