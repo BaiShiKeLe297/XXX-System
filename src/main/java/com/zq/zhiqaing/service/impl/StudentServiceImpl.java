@@ -40,13 +40,15 @@ public class StudentServiceImpl implements StudentService {
      */
     @Override
     public AjaxResult findAllStudent() {
-
-        PageHelper.startPage(2,3);
-        
-        List<Student> allStudent = studentDao.findAllStudent();
-        System.out.println(allStudent);
-        PageInfo pageInfo = new PageInfo(allStudent);
-        return AjaxResult.ok(pageInfo) ;
+        //------------这是第一种写法-----------------
+//        PageHelper.startPage(2,3);
+//        List<Student> allStudent = studentDao.findAllStudent();
+//        System.out.println(allStudent);
+//        PageInfo pageInfo = new PageInfo(allStudent);
+//        return AjaxResult.ok(pageInfo) ;
+        PageInfo<Object> objectPageInfo = PageHelper.startPage(1, 3)
+                .doSelectPageInfo(() -> studentDao.findAllStudent());
+        return AjaxResult.ok(objectPageInfo);
     }
 
     /**
